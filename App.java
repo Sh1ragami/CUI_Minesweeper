@@ -22,9 +22,9 @@ public class App {
         // ゲームの初期化
         board.printField();
         checker.initialDig();
-        digCount++;
         board.putMines(numberOfMines);
         board.printField();
+        digCount++;
 
         // ゲームプレイ
         while (true) {
@@ -36,8 +36,8 @@ public class App {
                 }
             }
             checker.printControl();
-            digCount++;
             board.printField();
+            digCount++;
         }
     }
 }

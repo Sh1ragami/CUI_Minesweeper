@@ -4,7 +4,7 @@ public class InputChecker {
 
     private Board board;
     private Cell[][] boardInfo;
-    private Scanner scanner;
+    private Scanner sc;
 
     // エラーメッセージの定義
     private static final String ERROR_INVALID_INPUT = "エラー：有効な値を入力してください";
@@ -13,7 +13,7 @@ public class InputChecker {
     private static final String ERROR_CANNOT_PLACE_FLAG = "フラグ設置不可：もう一度入力してください";
 
     public InputChecker() {
-        this.scanner = new Scanner(System.in);
+        this.sc = new Scanner(System.in);
     }
 
     public void setBoard(Board board) {
@@ -25,13 +25,13 @@ public class InputChecker {
         int input = 0;
 
         while (true) {
-            if (scanner.hasNextInt()) {
-                input = scanner.nextInt();
-                scanner.nextLine(); // 次の入力操作が新しい行から始まるようにする
+            if (sc.hasNextInt()) {
+                input = sc.nextInt();
+                sc.nextLine(); // 次の入力操作が新しい行から始まるようにする
                 break;
             } else {
                 System.out.println("整数値を入力してください。");
-                scanner.next();
+                sc.next();
             }
         }
         return input;
@@ -42,7 +42,7 @@ public class InputChecker {
 
         while (continueGame) {
             System.out.println("\n操作: x座標(行) y座標(列) 操作コマンド (D: 採掘, F: フラグ設置, E: 終了)");
-            String control = scanner.nextLine().toUpperCase();
+            String control = sc.nextLine().toUpperCase();
             continueGame = fieldChange(control);
         }
     }
@@ -53,7 +53,7 @@ public class InputChecker {
 
         while (!validInput) {
             System.out.println("\n操作: x座標(行) y座標(列)");
-            String control = scanner.nextLine();
+            String control = sc.nextLine();
             control += " D";
             validInput = !fieldChange(control);
         }

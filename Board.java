@@ -5,10 +5,9 @@ import java.util.Set;
 public class Board {
 
     private int boardSize;
-    private int mines;
+    private int numberOfMines;
     private Cell[][] boardInfo;
-
-    final int[][] DIRECTIONS = {
+    private final int[][] DIRECTIONS = {
             { -1, 0 }, { -1, 1 }, { -1, -1 }, { 0, 1 }, { 0, -1 }, { 1, 0 }, { 1, 1 }, { 1, -1 }
     };
 
@@ -27,13 +26,13 @@ public class Board {
         return boardInfo;
     }
 
-    public void putMines(int mines) {
-        this.mines = mines;
+    public void putMines(int numberOfMines ) {
+        this.numberOfMines = numberOfMines;
         Random rand = new Random();
         int placedMines = 0;
         Set<String> mineCoordinates = new HashSet<>();
 
-        while (placedMines < mines) {
+        while (placedMines < numberOfMines) {
             int x = rand.nextInt(boardSize);
             int y = rand.nextInt(boardSize);
             String coord = x + "," + y;
