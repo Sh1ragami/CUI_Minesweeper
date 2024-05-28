@@ -1,5 +1,5 @@
 public class Cell {
-    
+
     private boolean dug;
     private boolean mine;
     private boolean flagged;
